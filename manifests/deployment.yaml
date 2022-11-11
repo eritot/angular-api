@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-test-backend
+spec:
+  selector:
+    matchLabels:
+      app: angular-test
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: angular-test
+        tier: backend
+    spec:
+      containers:
+        - name: angular-test-backend
+          image: "ernom/angular-api"
+          ports:
+            - containerPort: 8000
